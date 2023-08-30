@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar navbar-expand-lg bg-success navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Equipos de Futbol</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +16,14 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <button class="btn btn-outline-success" type="submit">Login</button>
+          <button class="btn btn-info" type="submit" (click)="Login()">Login</button>
         </form>
       </div>
     </div>
   </nav>
-
+  <body style="background-color: #f8f9fa; margin: 0; padding: 0;">
+</body>
 <router-outlet></router-outlet> 
+
+
+</html>

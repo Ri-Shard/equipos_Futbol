@@ -1,42 +1,89 @@
-<section id="collection" style="padding-top: 50px; padding-bottom: 30px;">
 
-<div class="container">
-    <h2>Registro de Nuevo Equipo</h2>
-    <form (ngSubmit)="registrarEquipo()">
-      <div class="form-group">
-        <label>Nombre:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.nombre" name="nombre" required>
-      </div>
-      <div class="form-group">
-        <label>Estadio:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.estadio" name="estadio" required>
-      </div>
-      <div class="form-group">
-        <label>Sitio Web:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.sitioWeb" name="sitioWeb">
-      </div>
-      <div class="form-group">
-        <label>Nacionalidad:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.nacionalidad" name="nacionalidad" required>
-      </div>
-      <div class="form-group">
-        <label>Año de Fundación:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.anioFundacion" name="anioFundacion" required>
-      </div>
-      <div class="form-group">
-        <label>Entrenador:</label>
-        <input type="text" class="form-control" [(ngModel)]="equipo.entrenador" name="entrenador" required>
-      </div>
-      <div class="form-group">
-        <label>Capacidad:</label>
-        <input type="number" class="form-control" [(ngModel)]="equipo.capacidad" name="capacidad" required>
-      </div>
-      <div class="form-group">
-        <label>Valor:</label>
-        <input type="number" class="form-control" [(ngModel)]="equipo.valor" name="valor" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Registrar Equipo</button>
-    </form>
+
+  <div class="container"style="background-color: white; border-radius: 20px;padding-top: 50px; padding-bottom: 30px;padding-left: 30px;padding-right: 30px;">
+    <div class="card rounded-lg" style="background-color: white; border-radius: 20px;padding-top: 50px; padding-bottom: 30px;padding-left: 30px;padding-right: 30px;">
+      <div class="card-body">
+        <h2 class="card-title">Registro de Nuevo Equipo</h2>
+        <form [formGroup]="equipo" (ngSubmit)="registrarEquipo()">
+          <div class="form-group">
+            <label for="nombreEquipo">Nombre:</label>
+            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" formControlName="nombre">
+            <div *ngIf="equipo.controls['nombre'].invalid && equipo.controls['nombre'].touched"
+              class="text-danger">
+              Nombre requerido.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="estadioEquipo">Estadio:</label>
+            <input type="text" class="form-control" id="estadioEquipo" name="estadioEquipo" formControlName="estadio">
+            <div *ngIf="equipo.controls['estadio'].invalid && equipo.controls['estadio'].touched"
+              class="text-danger">
+              Estadio requerido.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sitioWebEquipo">Sitio Web:</label>
+            <input type="text" class="form-control" id="sitioWebEquipo" name="sitioWebEquipo" formControlName="sitioweb">
+            <div *ngIf="equipo.controls['sitioweb'].invalid && equipo.controls['sitioweb'].touched"
+              class="text-danger">
+              Sitio Web requerido.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nacionalidadEquipo">Nacionalidad</label>
+            <input type="text" class="form-control" id="nacionalidadEquipo" name="nacionalidadEquipo" formControlName="nacionalidad">
+            <div *ngIf="equipo.controls['nacionalidad'].invalid && equipo.controls['nacionalidad'].touched"
+              class="text-danger">
+              Nacionalidad requerida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label >Año de Fundación:</label>
+            <div class="anio">
+              <div class="input-group">
+                <input class="form-control" class="form-control" id="aniofundacion" name="aniofundacion" formControlName="aniofundacion"[matDatepicker]="basicDatepicker" (click)="basicDatepicker.open()">
+                <div class="input-group-append">
+                  <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+                </div>
+              </div>
+              <mat-datepicker #basicDatepicker></mat-datepicker>
+              <div *ngIf="equipo.controls['aniofundacion'].invalid && equipo.controls['aniofundacion'].touched"
+              class="text-danger">
+              Año de Fundacion requerido.
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="entrenadorEquipo">Entrenador:</label>
+            <input type="text" class="form-control" id="entrenadorEquipo" name="entrenadorEquipo" formControlName="entrenador">
+            <div *ngIf="equipo.controls['entrenador'].invalid && equipo.controls['entrenador'].touched"
+              class="text-danger">
+              Entrenador requerido.
+            </div>
+          </div>
+<div class="anio">
+  <div class="form-group">
+    <label for="capacidadEquipo">Capacidad:</label>
+    <input type="number" class="form-control" id="capacidadEquipo" name="capacidadEquipo" formControlName="capacidad">
+    <div *ngIf="equipo.controls['capacidad'].invalid && equipo.controls['capacidad'].touched"
+      class="text-danger">
+      Capacidad requerida.
+    </div>
   </div>
-</section>
-  
+  <div class="form-group">
+    <label for="valorEquipo">Valor:</label>
+    <input type="number" class="form-control" id="valorEquipo" name="valorEquipo" formControlName="valor">
+    <div *ngIf="equipo.controls['valor'].invalid && equipo.controls['valor'].touched"
+      class="text-danger">
+      Valor requerido.
+    </div>
+  </div>
+</div>
+    
+          <br>
+          <button type="submit" class="btn btn-success">Registrar Equipo</button>
+        </form>
+      </div>
+    </div>
+  </div>
