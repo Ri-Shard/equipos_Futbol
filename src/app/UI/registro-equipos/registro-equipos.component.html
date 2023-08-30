@@ -1,0 +1,42 @@
+<section id="collection" style="padding-top: 50px; padding-bottom: 30px;">
+
+<div class="container">
+    <h2>Registro de Nuevo Equipo</h2>
+    <form (ngSubmit)="registrarEquipo()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label>Estadio:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.estadio" name="estadio" required>
+      </div>
+      <div class="form-group">
+        <label>Sitio Web:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.sitioWeb" name="sitioWeb">
+      </div>
+      <div class="form-group">
+        <label>Nacionalidad:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.nacionalidad" name="nacionalidad" required>
+      </div>
+      <div class="form-group">
+        <label>Año de Fundación:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.anioFundacion" name="anioFundacion" required>
+      </div>
+      <div class="form-group">
+        <label>Entrenador:</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.entrenador" name="entrenador" required>
+      </div>
+      <div class="form-group">
+        <label>Capacidad:</label>
+        <input type="number" class="form-control" [(ngModel)]="equipo.capacidad" name="capacidad" required>
+      </div>
+      <div class="form-group">
+        <label>Valor:</label>
+        <input type="number" class="form-control" [(ngModel)]="equipo.valor" name="valor" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Equipo</button>
+    </form>
+  </div>
+</section>
+  
